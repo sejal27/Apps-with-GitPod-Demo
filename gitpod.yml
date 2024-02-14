@@ -1,9 +1,12 @@
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
   - name: Setup CLI
-    # before:
-    init: npm install -g @hubspot/cli@next && cd multi-step-flow/src/app/extensions # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
-    command: rm -rf package-lock.json && npm install & hs auth
+    before: npm install -g @hubspot/cli@next
+    init:
+      | # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
+      cd multi-step-flow/src/app/extensions
+      npm install
+    command: hs auth
     # command: echo 'success! Run hs project dev next'
 # # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
 # ports:
